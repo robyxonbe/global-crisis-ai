@@ -1,0 +1,13 @@
+openapi: 3.0.3
+info: { title: Global Crisis AI API, version: 1.0.0 }
+servers: [ { url: https://YOUR_DOMAIN } ]
+paths:
+  /api/feeds/alerts: { get: { summary: Aggregated alerts, responses: { '200': { description: OK } } } }
+  /api/alerts: { get: { summary: List manual alerts }, post: { summary: Create manual alert }, delete: { summary: Delete manual alert } }
+  /api/cameras/import: { post: { summary: Import cameras CSV } }
+  /api/i18n/import: { post: { summary: Import translations JSON } }
+  /api/push/subscribe: { post: { summary: Save web subscription } }
+  /api/push/send: { post: { summary: Send web push } }
+  /api/push/subscribe-native: { post: { summary: Save native FCM token } }
+  /api/push/send-native: { post: { summary: Send native FCM push } }
+  /api/health: { get: { summary: Health check } }

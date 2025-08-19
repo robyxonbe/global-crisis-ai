@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "GCAI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base}}/api/health",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Alerts (agg)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base}}/api/feeds/alerts?include=manual,eq,eonet,conflict,tsunami,volcano,fires,gdacs",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "feeds",
+            "alerts"
+          ],
+          "query": [
+            {
+              "key": "include",
+              "value": "manual,eq,eonet,conflict,tsunami,volcano,fires,gdacs"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base",
+      "value": "http://localhost:3000"
+    }
+  ]
+}

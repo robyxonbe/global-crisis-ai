@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: crisis
+    ports: ["5432:5432"]
+    volumes: [ "pgdata:/var/lib/postgresql/data" ]
+  web:
+    build: .
+    depends_on: [ db ]
+    environment:
+      DATABASE_PROVIDER: postgresql
+      DATABASE_URL: postgres://app:app@db:5432/crisis
+      NEXTAUTH_SECRET: dev_change_me
+    ports: ["3000:3000"]
+volumes:
+  pgdata:
